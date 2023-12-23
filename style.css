@@ -68,6 +68,42 @@ a:hover {
   cursor: default;
 }
 
+
+/* Animation for Profile Image */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.section__pic-container {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+/* Animation for About Me Text */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.section__text {
+  animation: 1s ease-out 0s 1 slideInFromRight;
+}
+
+
+
+
 /* HAMBURGER MENU */
 
 #hamburger-nav {
@@ -342,6 +378,7 @@ section {
   flex-direction: row;
   gap: 2.5rem;
   justify-content: space-around;
+  
 }
 
 article {
@@ -380,6 +417,12 @@ article .icon {
 .project-btn {
   color: black;
   border-color: rgb(163, 163, 163);
+}
+
+.project-technologies {
+  font-size: 1rem;
+  color: #333;
+  margin: 10px 0;
 }
 
 /* CONTACT */
@@ -431,4 +474,51 @@ footer {
 
 footer p {
   text-align: center;
+}
+
+
+
+
+.article-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+}
+
+.project-img {
+  width: 100%;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 2rem;
+}
+
+.project-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 20px;
+  border-radius: 2rem;
+}
+
+.article-container:hover .project-img {
+  filter: blur(8px);
+}
+
+.article-container:hover .project-description {
+  opacity: 1;
+}
+
+
+.project-description p {
+  color: #fff; /* Ensures all text inside is white */
 }
